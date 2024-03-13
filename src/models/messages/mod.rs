@@ -112,6 +112,7 @@ pub struct SlackMessageAttachment {
     pub color: Option<String>,
     pub fallback: Option<String>,
     pub title: Option<String>,
+    pub blocks: Option<Vec<SlackBlock>>,
     pub fields: Option<Vec<SlackMessageAttachmentFieldObject>>,
     pub mrkdwn_in: Option<Vec<String>>,
     pub text: Option<String>,
