@@ -322,6 +322,7 @@ pub struct SlackApiChatUnfurlMapItem {
 #[skip_serializing_none]
 #[derive(Debug, PartialEq, Clone, Serialize, Deserialize, Builder)]
 pub struct SlackApiChatUnfurlMapItemV2 {
+    pub color: Option<String>,
     pub blocks: Vec<SlackBlock>,
     pub preview: Option<SlackApiChatUnfurlPreview>,
 }
