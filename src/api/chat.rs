@@ -337,7 +337,11 @@ pub struct SlackApiChatUnfurlPreview {
 
 #[skip_serializing_none]
 #[derive(Debug, PartialEq, Clone, Serialize, Deserialize, Builder)]
-pub struct SlackApiChatUnfurlResponse {}
+pub struct SlackApiChatUnfurlResponse {
+    pub ok: bool,
+    pub message_ts: Option<String>,
+    pub error: Option<String>,
+}
 
 #[skip_serializing_none]
 #[derive(Debug, PartialEq, Clone, Serialize, Deserialize, Builder)]
