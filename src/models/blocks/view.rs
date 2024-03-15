@@ -52,6 +52,7 @@ pub struct SlackModalView {
     #[serde(default)]
     #[serde_as(as = "serde_with::NoneAsEmptyString")]
     pub external_id: Option<String>,
+    pub state: Option<SlackViewState>,
 }
 
 #[skip_serializing_none]
