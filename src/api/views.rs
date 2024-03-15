@@ -119,5 +119,7 @@ pub struct SlackApiViewsUpdateRequest {
 #[skip_serializing_none]
 #[derive(Debug, PartialEq, Clone, Serialize, Deserialize, Builder)]
 pub struct SlackApiViewsUpdateResponse {
+    pub ok: bool,
+    pub error: Option<String>,
     pub view: SlackStatefulView,
 }
