@@ -12,6 +12,8 @@ use std::collections::HashMap;
 pub enum SlackInteractionEvent {
     #[serde(rename = "block_actions")]
     BlockActions(SlackInteractionBlockActionsEvent),
+    #[serde(rename = "block_suggestion")]
+    BlockSuggestion(SlackInteractionBlockSuggestionEvent),
     #[serde(rename = "dialog_submission")]
     DialogSubmission(SlackInteractionDialogueSubmissionEvent),
     #[serde(rename = "message_action")]
@@ -38,6 +40,18 @@ pub struct SlackInteractionBlockActionsEvent {
     pub response_url: Option<SlackResponseUrl>,
     pub actions: Option<Vec<SlackInteractionActionInfo>>,
     pub state: Option<SlackActionState>,
+}
+
+#[skip_serializing_none]
+#[derive(Debug, PartialEq, Clone, Serialize, Deserialize, Builder)]
+pub struct SlackInteractionBlockSuggestionEvent {
+    pub team: SlackBasicTeamInfo,
+    pub user: Option<SlackBasicUserInfo>,
+    pub api_app_id: SlackAppId,
+    pub container: SlackInteractionActionContainer,
+    pub view: Option<SlackView>,
+    pub state: Option<SlackActionState>,
+    pub value: String,
 }
 
 #[derive(Debug, PartialEq, Clone, Serialize, Deserialize)]
