@@ -57,6 +57,13 @@ pub struct SlackInteractionBlockSuggestionEvent {
     pub value: String,
 }
 
+#[skip_serializing_none]
+#[derive(Debug, PartialEq, Clone, Serialize, Deserialize, Builder)]
+pub struct SlackInteractionBlockSuggestionResponse {
+    pub options: Option<Vec<SlackBlockChoiceItem<SlackBlockPlainTextOnly>>>,
+    pub option_groups: Option<Vec<SlackBlockOptionGroup<SlackBlockPlainTextOnly>>>,
+}
+
 #[derive(Debug, PartialEq, Clone, Serialize, Deserialize)]
 #[serde(tag = "type")]
 pub enum SlackInteractionActionContainer {
