@@ -42,17 +42,18 @@ pub struct SlackInteractionBlockActionsEvent {
     pub state: Option<SlackActionState>,
 }
 
+/// https://api.slack.com/reference/interaction-payloads/block-suggestion
 #[skip_serializing_none]
 #[derive(Debug, PartialEq, Clone, Serialize, Deserialize, Builder)]
 pub struct SlackInteractionBlockSuggestionEvent {
     pub team: SlackBasicTeamInfo,
-    pub user: Option<SlackBasicUserInfo>,
+    pub user: SlackBasicUserInfo,
     pub api_app_id: SlackAppId,
+    pub block_id: SlackBlockId,
+    pub action_id: SlackActionId,
     pub container: SlackInteractionActionContainer,
     pub view: Option<SlackView>,
     pub state: Option<SlackActionState>,
-    pub action_id: SlackActionId,
-    pub block_id: Option<SlackBlockId>,
     pub value: String,
 }
 
