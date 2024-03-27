@@ -51,6 +51,8 @@ pub struct SlackInteractionBlockSuggestionEvent {
     pub container: SlackInteractionActionContainer,
     pub view: Option<SlackView>,
     pub state: Option<SlackActionState>,
+    pub action_id: SlackActionId,
+    pub block_id: Option<SlackBlockId>,
     pub value: String,
 }
 
