@@ -256,9 +256,9 @@ pub struct SlackApiChatPostMessageRequest {
 pub struct SlackApiChatPostMessageResponse {
     pub ok: bool,
     pub error: Option<String>,
-    pub channel: SlackChannelId,
-    pub ts: SlackTs,
-    pub message: SlackMessage,
+    pub channel: Option<SlackChannelId>,
+    pub ts: Option<SlackTs>,
+    pub message: Option<SlackMessage>,
 }
 
 #[skip_serializing_none]
