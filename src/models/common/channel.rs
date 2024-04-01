@@ -13,6 +13,11 @@ pub trait HasChannelInfo {
 #[derive(Debug, PartialEq, Clone, Serialize, Deserialize, Builder)]
 pub struct SlackChannelInfo {
     pub id: SlackChannelId,
+    pub is_channel: Option<bool>,
+    pub is_group: Option<bool>,
+    pub is_im: Option<bool>,
+    pub is_member: Option<bool>,
+    pub is_private: Option<bool>,
     pub created: SlackDateTime,
     pub creator: Option<SlackUserId>,
     pub name: Option<String>,
