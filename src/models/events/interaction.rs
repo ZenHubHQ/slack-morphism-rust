@@ -71,6 +71,8 @@ pub enum SlackInteractionActionContainer {
     Message(SlackInteractionActionMessageContainer),
     #[serde(rename = "view")]
     View(SlackInteractionActionViewContainer),
+    #[serde(rename = "message_attachment")]
+    MessageAttachment(SlackInteractionActionMessageAttachmentContainer),
 }
 
 #[skip_serializing_none]
@@ -86,6 +88,16 @@ pub struct SlackInteractionActionMessageContainer {
 #[derive(Debug, PartialEq, Clone, Serialize, Deserialize, Builder)]
 pub struct SlackInteractionActionViewContainer {
     pub view_id: SlackViewId,
+}
+
+#[skip_serializing_none]
+#[derive(Debug, PartialEq, Clone, Serialize, Deserialize, Builder)]
+pub struct SlackInteractionActionMessageAttachmentContainer {
+    pub message_ts: SlackTs,
+    pub attachment_id: Option<i32>,
+    pub channel_id: Option<SlackChannelId>,
+    pub is_ephemeral: Option<bool>,
+    pub is_app_unfurl: Option<bool>,
 }
 
 #[skip_serializing_none]
