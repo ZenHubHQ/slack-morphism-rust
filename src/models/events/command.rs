@@ -9,6 +9,7 @@ use crate::*;
 pub struct SlackCommandEvent {
     pub team_id: SlackTeamId,
     pub channel_id: SlackChannelId,
+    pub channel_name: Option<String>,
     pub user_id: SlackUserId,
     pub command: SlackCommandId,
     pub text: Option<String>,
