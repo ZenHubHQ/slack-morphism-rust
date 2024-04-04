@@ -98,6 +98,7 @@ pub struct SlackInteractionActionMessageAttachmentContainer {
     pub channel_id: Option<SlackChannelId>,
     pub is_ephemeral: Option<bool>,
     pub is_app_unfurl: Option<bool>,
+    pub app_unfurl_url: Option<String>,
 }
 
 #[skip_serializing_none]
