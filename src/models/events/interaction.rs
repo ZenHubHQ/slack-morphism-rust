@@ -134,6 +134,7 @@ pub struct SlackInteractionMessageActionEvent {
     pub team: SlackBasicTeamInfo,
     pub user: SlackBasicUserInfo,
     pub channel: Option<SlackBasicChannelInfo>,
+    pub messsage_ts: Option<SlackTs>,
     pub message: Option<SlackHistoryMessage>,
     pub callback_id: SlackCallbackId,
     pub trigger_id: SlackTriggerId,
