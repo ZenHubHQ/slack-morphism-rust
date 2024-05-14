@@ -289,8 +289,11 @@ pub enum SlackInputBlockElement {
 #[skip_serializing_none]
 #[derive(Debug, PartialEq, Clone, Serialize, Deserialize, Builder)]
 pub struct SlackBlockImageElement {
-    pub image_url: String,
     pub alt_text: String,
+    pub image_url: Option<String>,
+    pub slack_file: Option<SlackBlockSlackFileElement>,
+    pub title: Option<String>,
+    pub block_id: Option<SlackBlockId>,
 }
 
 impl From<SlackBlockImageElement> for SlackSectionBlockElement {
@@ -303,6 +306,13 @@ impl From<SlackBlockImageElement> for SlackContextBlockElement {
     fn from(element: SlackBlockImageElement) -> Self {
         SlackContextBlockElement::Image(element)
     }
+}
+
+#[skip_serializing_none]
+#[derive(Debug, PartialEq, Clone, Serialize, Deserialize, Builder)]
+pub struct SlackBlockSlackFileElement {
+    pub url: Option<String>,
+    pub id: Option<String>,
 }
 
 #[skip_serializing_none]
