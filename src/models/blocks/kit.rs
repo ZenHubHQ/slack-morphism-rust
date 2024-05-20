@@ -81,7 +81,8 @@ impl From<SlackDividerBlock> for SlackBlock {
 #[derive(Debug, PartialEq, Clone, Serialize, Deserialize, Builder)]
 pub struct SlackImageBlock {
     pub block_id: Option<SlackBlockId>,
-    pub image_url: Url,
+    pub image_url: Option<Url>,
+    pub slack_file: Option<SlackBlockSlackFileElement>,
     pub alt_text: String,
     pub title: Option<SlackBlockPlainTextOnly>,
 }
